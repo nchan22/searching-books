@@ -64,3 +64,23 @@ export const SAVE_BOOK = gql`
     }
   }
 `;
+
+// add remove book function, where the bookId must exist and be a string
+export const REMOVE_BOOK = gql`
+  mutation removeBook($bookId: String!) {
+    removeBook(bookId: $bookId) {
+      _id
+      username
+      email
+      bookCount
+      savedBooks {
+        bookId
+        authors
+        image
+        description
+        title
+        link
+      }
+    }
+  }
+`;
