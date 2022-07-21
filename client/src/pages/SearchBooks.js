@@ -15,12 +15,9 @@ import { SAVE_BOOK } from "../utils/mutations";
 import { useMutation } from "@apollo/react-hooks";
 
 const SearchBooks = () => {
-  // create state for holding returned google api data
+  const [saveBook, { error }] = useMutation(SAVE_BOOK);
   const [searchedBooks, setSearchedBooks] = useState([]);
-  // create state for holding our search field data
   const [searchInput, setSearchInput] = useState("");
-
-  // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
