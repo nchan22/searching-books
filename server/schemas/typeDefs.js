@@ -26,4 +26,13 @@ const typeDefs = gql`
     image: String
     link: String
   }
+
+  type Query {
+    me: User
+  }
+
+  type Auth {
+    token: ID
+    user: User
+  }
 `;
