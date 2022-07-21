@@ -22,3 +22,26 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// add login user that requires the email & password to be a string, and when logged in, will have same token and matching user info
+export const LOGIN_USER = gql`
+  mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        email
+        bookCount
+        savedBooks {
+          bookId
+          title
+          description
+          authors
+          link
+          image
+        }
+      }
+    }
+  }
+`;
