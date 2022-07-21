@@ -6,13 +6,17 @@ import { LOGIN_USER } from "../utils/mutations";
 import { useMutation } from "@apollo/react-hooks";
 
 const LoginForm = () => {
+  const [login, { error }] = useMutation(LOGIN_USER);
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+    setUserFormData({
+      ...userFormData,
+      [name]: value,
+    });
   };
 
   const handleFormSubmit = async (event) => {
